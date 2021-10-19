@@ -232,7 +232,7 @@
     <input type="text" v-model="url" :disabled="downloading" placeholder="请输入 m3u8 链接">
   </section>
 
-  <input id="parentIframe" type="hidden"  onclick="getMP4" value='true'/>
+
   <section class="m-p-input-container">
   <!--还未开始下载-->
   
@@ -252,7 +252,6 @@
 
     <div v-else-if="finishNum === rangeDownload.targetSegment && rangeDownload.targetSegment > 0" class="disable">下载完成</div>
     <div v-else @click="togglePause">{{ isPause ? '恢复下载' : '暂停下载' }}</div>
-
   </section>
   
   <template v-if="finishList.length > 0">
@@ -697,20 +696,5 @@ new Vue({
 })
 // script注入
 </script>
-<script type="text/javascript">
-  //一秒后模拟点击
-    setTimeout(function() {
-      // IE
-      if(document.all) {
-        document.getElementById("parentIframe").click();
-      }
-      // 其它浏览器
-      else {
-        var e = document.createEvent("MouseEvents");
-        e.initEvent("click", true, true);
-        document.getElementById("parentIframe").dispatchEvent(e);
-      }
-    }, 1000);
-  </script>
 
 </html>
