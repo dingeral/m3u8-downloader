@@ -23,7 +23,7 @@
   }
   #m-app {
     height: 100%;
-    width: 90%;
+    width: 100%;
     text-align: center;
     padding: 10px 50px 80px;
     box-sizing: border-box;
@@ -100,28 +100,7 @@
     animation-iteration-count: infinite;
     animation-delay: .5s;
   }
-  .m-p-refer .close {
-    display: block;
-    position: absolute;
-    top: -110px;
-    right: -50px;
-    padding: 0;
-    margin: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    z-index: 3;
-    transition: 0.3s all;
-    background-size: 30px 30px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-image: url(https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/imgs/close.png);
-    background-color: rgba(0, 0, 0, 0.5);
   }
-  .m-p-refer .close:hover {
-    background-color: rgba(0, 0, 0, 0.8);
   }
   .m-p-refer .link {
     border-radius: 4px;
@@ -336,8 +315,8 @@
 <div id="loading">页面加载中，请耐心等待...</div>
 <section id="m-app" v-cloak>
   <!--顶部操作提示-->
-  <!-- <section class="m-p-action g-box">{{tips}}</section>
-  <a class="m-p-help" target="_blank" href="https://segmentfault.com/a/1190000021847172">?</a>
+  <section class="m-p-action g-box">{{tips}}</section>
+  <!-- <a class="m-p-help" target="_blank" href="https://segmentfault.com/a/1190000021847172">?</a>
   <a class="m-p-tamper" target="_blank" href="https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/m3u8-downloader.user.js">手动添加油猴插件</a>
   <a class="m-p-github" target="_blank" href="https://github.com/Momo707577045/m3u8-downloader">github</a>
   <a class="m-p-other" target="_blank" href="http://blog.luckly-mjw.cn/tool-show/index.html">其他实用工具</a>
