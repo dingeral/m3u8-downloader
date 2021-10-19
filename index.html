@@ -236,7 +236,7 @@
   <!--还未开始下载-->
   
   <template v-if="!downloading">
-    <div @onclick="getMP4">转 mp4 下载</div>
+    <div @onload="getMP4">转 mp4 下载</div>
     <div @click="getM3U8(false)">原格式下载</div>
   </template>
 
