@@ -234,8 +234,9 @@
 
   <section class="m-p-input-container">
   <!--还未开始下载-->
+  
   <template v-if="!downloading">
-    <div @click="getMP4">转 mp4 下载</div>
+    <div @onclick="getMP4">转 mp4 下载</div>
     <div @click="getM3U8(false)">原格式下载</div>
   </template>
 
@@ -281,7 +282,7 @@ new Vue({
       url: '', // 在线链接
       tips: 'm3u8 视频在线下载', // 顶部提示
       isPause: false, // 是否暂停下载
-      isGetMP4: true, // 是否转码为 MP4 下载
+      isGetMP4: false, // 是否转码为 MP4 下载
       durationSecond: 0, // 视频持续时长
       isShowRefer: true, // 是否显示推送
       downloading: false, // 是否下载中
@@ -668,65 +669,6 @@ new Vue({
       alert(tips)
       this.downloading = false
       this.tips = 'm3u8 视频在线下载';
-    },
-
-    // 拷贝本页面本身，解决跨域问题
-    copyCode() {
-      if (this.tips !== '代码下载中，请稍后') {
-        this.tips = '代码下载中，请稍后';
-        this.ajax({
-          url: './index.html',
-          success: (fileStr) => {
-            let fileList = fileStr.split(`<!--vue 前端框架--\>`);
-            let dom = fileList[0];
-            let script = fileList[1] + fileList[2];
-            script = script.split('// script注入');
-            script = script[1] + script[2];
-
-            if (this.url) {
-              script = script.replace(`url: '', // 在线链接`, `url: '${this.url}',`);
-            }
-
-            let codeStr = `
-          // 注入html
-          let $section = document.createElement('section')
-          $section.innerHTML = \`${dom}\`
-          $section.style.width = '100%'
-          $section.style.height = '800px'
-          $section.style.top = '0'
-          $section.style.left = '0'
-          $section.style.position = 'relative'
-          $section.style.zIndex = '9999'
-          $section.style.backgroundColor = 'white'
-          document.body.appendChild($section);
-
-          // 加载 ASE 解密
-          let $ase = document.createElement('script')
-          $ase.src = 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/aes-decryptor.js'
-
-          // 加载 mp4 转码
-          let $mp4 = document.createElement('script')
-          $mp4.src = 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/mux-mp4.js'
-
-          // 加载 vue
-          let $vue = document.createElement('script')
-          $vue.src = 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/vue.js'
-
-          // 监听 vue 加载完成，执行业务代码
-          $vue.addEventListener('load', () => {${script}})
-          document.body.appendChild($vue);
-          document.body.appendChild($mp4);
-          document.body.appendChild($ase);
-          alert('注入成功，请滚动到页面底部，若白屏则等待资源加载')
-          `;
-            this.copyToClipboard(codeStr);
-            this.tips = '复制成功，打开视频网页控制台，注入本代码';
-          },
-          fail: () => {
-            this.alertError('链接不正确，请查看链接是否有效');
-          },
-        })
-      }
     },
 
     // 拷贝剪切板
