@@ -231,12 +231,12 @@
   <section class="m-p-input-container">
     <input type="text" v-model="url" :disabled="downloading" placeholder="请输入 m3u8 链接">
   </section>
-
+  <a href="#" id="getMP4" οnclick="getMP4(true)"></a>
   <section class="m-p-input-container">
   <!--还未开始下载-->
   
   <template v-if="!downloading">
-    <div @onload="getMP4">转 mp4 下载</div>
+    <div @click="getMP4">转 mp4 下载</div>
     <div @click="getM3U8(false)">原格式下载</div>
   </template>
 
