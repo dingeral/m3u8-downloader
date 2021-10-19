@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh">
 
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="keywords" content="m3u8 downloader for web">
   <meta name="description" content="m3u8 downloader">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>m3u8 downloader</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
   <style>
@@ -34,89 +33,13 @@
     margin: 20px auto;
     max-width: 1100px;
     width: 100%;
-    font-size: 30px;
+    font-size: 1.7em;
     text-align: center;
-    font-weight: bold;
-  }
-  .m-p-other, .m-p-tamper, .m-p-github, .m-p-language {
-    position: fixed;
-    right: 50px;
-    background-color: #eff3f6;
-    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
-    color: #24292e;
-    border: 1px solid rgba(27, 31, 35, .2);
-    border-radius: 3px;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 20px;
-    padding: 6px 12px;
-    z-index: 99;
-  }
-  .m-p-help {
-    position: fixed;
-    right: 50px;
-    top: 50px;
-    width: 30px;
-    height: 30px;
-    color: #666666;
-    z-index: 2;
-    line-height: 30px;
-    font-weight: bolder;
-    border-radius: 50%;
-    border: 1px solid rgba(27, 31, 35, .2);
-    cursor: pointer;
-    background-color: #eff3f6;
-    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
-  }
-  .m-p-github:hover, .m-p-other:hover, .m-p-tamper:hover, .m-p-help:hover, .m-p-language:hover {
-    opacity: 0.9;
-  }
-  .m-p-language {
-    bottom: 70px;
-  }
-  .m-p-other {
-    bottom: 110px;
-  }
-  .m-p-tamper {
-    bottom: 30px;
-  }
-  .m-p-github {
-    bottom: 150px;
-  }
-  /*广告*/
-  .m-p-refer {
-    position: absolute;
-    left: 50px;
-    bottom: 50px;
-  }
-  .m-p-refer .text {
-    position: absolute;
-    top: -80px;
-    left: -40px;
-    animation-name: upAnimation;
-    transform-origin: center bottom;
-    animation-duration: 2s;
-    animation-fill-mode: both;
-    animation-iteration-count: infinite;
-    animation-delay: .5s;
+    /* font-weight: bold; */
   }
   }
   }
-  .m-p-refer .link {
-    border-radius: 4px;
-    text-decoration: none;
-    background-color: #4E84E6;
-    transition: 0.3s all;
-  }
-  .m-p-refer .link:hover {
-    top: -10px;
-    color: #333333;
-    border: 1px solid transparent;
-    background: rgba(0, 0, 0, 0.6);
-    box-shadow: 2px 11px 20px 0 rgba(0, 0, 0, 0.6);
-  }
+
   @keyframes upAnimation {
     0% {
       transform: rotate(0deg);
@@ -192,7 +115,7 @@
     display: block;
     width: 280px;
     padding: 12px;
-    font-size: 19px;
+    font-size: 1em;
     border-radius: 4px;
     box-shadow: none;
     color: #444444;
@@ -210,7 +133,7 @@
     margin-left: 10px;
     height: 45px;
     line-height: 45px;
-    font-size: 19px;
+    font-size: 1.1em;
     color: white;
     cursor: pointer;
     border-radius: 4px;
@@ -223,7 +146,7 @@
     opacity: 0.9;
   }
   .m-p-input-container div {
-    width: 200px;
+    width: 120px;
   }
   .m-p-input-container .disable {
     cursor: not-allowed;
@@ -301,35 +224,35 @@
 <section id="m-app" v-cloak>
   <!--顶部操作提示-->
   <section class="m-p-action g-box">{{tips}}</section>
-  <a class="m-p-help" target="_blank" href="https://github.com/dingeral/m3u8-downloader">?</a>
-  <!-- <a class="m-p-tamper" target="_blank" href="https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/m3u8-downloader.user.js">手动添加油猴插件</a>
-  <a class="m-p-github" target="_blank" href="https://github.com/Momo707577045/m3u8-downloader">github</a>
-  <a class="m-p-other" target="_blank" href="http://blog.luckly-mjw.cn/tool-show/index.html">其他实用工具</a>
-  <a class="m-p-language" href="http://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index-en.html">English version</a> -->
-
+  <a class="m-p-temp-url" target="_blank" href="https://github.com/dingeral/m3u8-downloader">关于</a>
+  <!-- 提示 -->
+  <div class="m-p-temp-url">m3u8 链接类似于：https://uehkhkfhkj.com/20211024/hDwfdsAzly/hls/index.m3u8</div>
   <!--文件载入-->
-  <div class="m-p-temp-url">测试链接：https://m8t.vboku.com/20201104/hDwsAzly/hls/index.m3u8</div>
   <section class="m-p-input-container">
     <input type="text" v-model="url" :disabled="downloading" placeholder="请输入 m3u8 链接">
+  </section>
 
-    <!--范围查询-->
-    <template v-if="!downloading || rangeDownload.isShowRange">
-      <div v-if="!rangeDownload.isShowRange" @click="getM3U8(true)">特定范围下载</div>
+  <section class="m-p-input-container">
+  <!--还未开始下载-->
+  <template v-if="!downloading">
+    <div @click="getMP4">转 mp4 下载</div>
+    <div @click="getM3U8(false)">原格式下载</div>
+  </template>
+
+<!--范围查询-->
+  <template v-if="!downloading || rangeDownload.isShowRange">
+    <div v-if="!rangeDownload.isShowRange" @click="getM3U8(true)">特定范围下载</div>
       <template v-else>
         <input class="range-input" type="number" v-model="rangeDownload.startSegment" :disabled="downloading" placeholder="起始片段">
         <input class="range-input" type="number" v-model="rangeDownload.endSegment" :disabled="downloading" placeholder="截止片段">
       </template>
     </template>
 
-    <!--还未开始下载-->
-    <template v-if="!downloading">
-      <div @click="getM3U8(false)">原格式下载</div>
-      <div @click="getMP4">转码为MP4下载</div>
-    </template>
     <div v-else-if="finishNum === rangeDownload.targetSegment && rangeDownload.targetSegment > 0" class="disable">下载完成</div>
     <div v-else @click="togglePause">{{ isPause ? '恢复下载' : '暂停下载' }}</div>
-  </section>
 
+  </section>
+  
   <template v-if="finishList.length > 0">
     <div class="m-p-line"></div>
     <div class="m-p-retry" v-if="errorNum && downloadIndex >= rangeDownload.targetSegment" @click="retryAll">重新下载错误片段</div>
@@ -356,7 +279,7 @@ new Vue({
   data() {
     return {
       url: '', // 在线链接
-      tips: 'm3u8 视频在线提取工具', // 顶部提示
+      tips: 'm3u8 视频在线下载', // 顶部提示
       isPause: false, // 是否暂停下载
       isGetMP4: false, // 是否转码为 MP4 下载
       durationSecond: 0, // 视频持续时长
@@ -744,7 +667,7 @@ new Vue({
     alertError(tips) {
       alert(tips)
       this.downloading = false
-      this.tips = 'm3u8 视频在线提取工具';
+      this.tips = 'm3u8 视频在线下载';
     },
 
     // 拷贝本页面本身，解决跨域问题
