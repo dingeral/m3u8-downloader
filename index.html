@@ -22,8 +22,8 @@
     display: none;
   }
   #m-app {
-    height: 900%;
-    width: 80%;
+    height: 100%;
+    width: 90%;
     text-align: center;
     padding: 10px 50px 80px;
     box-sizing: border-box;
@@ -83,6 +83,12 @@
   .m-p-github {
     bottom: 150px;
   }
+  /*广告*/
+  .m-p-refer {
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+  }
   .m-p-refer .text {
     position: absolute;
     top: -80px;
@@ -93,6 +99,29 @@
     animation-fill-mode: both;
     animation-iteration-count: infinite;
     animation-delay: .5s;
+  }
+  .m-p-refer .close {
+    display: block;
+    position: absolute;
+    top: -110px;
+    right: -50px;
+    padding: 0;
+    margin: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    z-index: 3;
+    transition: 0.3s all;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* background-image: url(https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/imgs/close.png); */
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .m-p-refer .close:hover {
+    background-color: rgba(0, 0, 0, 0.8);
   }
   .m-p-refer .link {
     border-radius: 4px;
@@ -307,8 +336,8 @@
 <div id="loading">页面加载中，请耐心等待...</div>
 <section id="m-app" v-cloak>
   <!--顶部操作提示-->
-  <!-- <section class="m-p-action g-box">{{tips}}</section>
-  <a class="m-p-help" target="_blank" href="https://segmentfault.com/a/1190000021847172">?</a>
+  <section class="m-p-action g-box">{{tips}}</section>
+  <!-- <a class="m-p-help" target="_blank" href="https://segmentfault.com/a/1190000021847172">?</a>
   <a class="m-p-tamper" target="_blank" href="https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/m3u8-downloader.user.js">手动添加油猴插件</a>
   <a class="m-p-github" target="_blank" href="https://github.com/Momo707577045/m3u8-downloader">github</a>
   <a class="m-p-other" target="_blank" href="http://blog.luckly-mjw.cn/tool-show/index.html">其他实用工具</a>
@@ -502,14 +531,14 @@ new Vue({
 
       // 在下载页面才触发，代码注入的页面不需要校验
       // 当前协议不一致，切换协议
-      if (location.href.indexOf('blog.luckly-mjw.cn') > -1 && this.url.indexOf(location.protocol) === -1) {
+      if (location.href.indexOf('m3u8.dingeral.com') > -1 && this.url.indexOf(location.protocol) === -1) {
         //alert('当前协议不一致，跳转至正确页面重新下载')
-        location.href = `${this.url.split(':')[0]}://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html?source=${this.url}`
+        location.href = `${this.url.split(':')[0]}://m3u8.dingeral.com?source=${this.url}`
         return
       }
 
       // 在下载页面才触发，修改页面 URL，携带下载路径，避免刷新后丢失
-      if (location.href.indexOf('blog.luckly-mjw.cn') > -1) {
+      if (location.href.indexOf('m3u8.dingeral.com') > -1) {
         window.history.replaceState(null, '', `${location.href.split('?')[0]}?source=${this.url}`)
       }
 
@@ -805,15 +834,15 @@ new Vue({
 
           // 加载 ASE 解密
           let $ase = document.createElement('script')
-          $ase.src = 'https://raw.githubusercontent.com/dingeral/m3u8-downloader/main/aes-decryptor.js'
+          $ase.src = 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/aes-decryptor.js'
 
           // 加载 mp4 转码
           let $mp4 = document.createElement('script')
-          $mp4.src = 'https://raw.githubusercontent.com/dingeral/m3u8-downloader/main/mux-mp4.js'
+          $mp4.src = 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/mux-mp4.js'
 
           // 加载 vue
           let $vue = document.createElement('script')
-          $vue.src = 'https://raw.githubusercontent.com/dingeral/m3u8-downloader/main/vue.js'
+          $vue.src = 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/vue.js'
 
           // 监听 vue 加载完成，执行业务代码
           $vue.addEventListener('load', () => {${script}})
