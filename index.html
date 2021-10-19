@@ -33,7 +33,7 @@
     margin: 20px auto;
     max-width: 1100px;
     width: 100%;
-    font-size: 35px;
+    font-size: 30px;
     text-align: center;
     font-weight: bold;
   }
@@ -174,8 +174,8 @@
   }
   /*顶部信息录入*/
   .m-p-temp-url {
-    padding-top: 50px;
-    padding-bottom: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     width: 100%;
     color: #999999;
     text-align: left;
@@ -187,11 +187,11 @@
   }
   .m-p-input-container input {
     flex: 1;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     display: block;
     width: 280px;
-    padding: 16px;
-    font-size: 21px;
+    padding: 19px;
+    font-size: 19px;
     border-radius: 4px;
     box-shadow: none;
     color: #444444;
@@ -207,9 +207,9 @@
     position: relative;
     display: inline-block;
     margin-left: 10px;
-    height: 60px;
-    line-height: 60px;
-    font-size: 21px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 19px;
     color: white;
     cursor: pointer;
     border-radius: 4px;
@@ -270,30 +270,13 @@
     cursor: pointer;
     background-color: #DC5350;
   }
-  .m-p-cross, .m-p-final {
-    display: inline-block;
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    font-size: 20px;
-    color: white;
-    cursor: pointer;
-    border-radius: 4px;
-    border: 1px solid #eeeeee;
-    background-color: #3D8AC7;
-    opacity: 1;
-    transition: 0.3s all;
-  }
-  .m-p-final {
-    margin-top: 10px;
-    text-decoration: none;
   }
   .m-p-force, .m-p-retry {
     position: absolute;
     right: 50px;
     display: inline-block;
     padding: 6px 12px;
-    font-size: 18px;
+    font-size: 16px;
     color: white;
     cursor: pointer;
     border-radius: 4px;
@@ -345,9 +328,6 @@
     <div v-else-if="finishNum === rangeDownload.targetSegment && rangeDownload.targetSegment > 0" class="disable">下载完成</div>
     <div v-else @click="togglePause">{{ isPause ? '恢复下载' : '暂停下载' }}</div>
   </section>
-
-  <div class="m-p-cross" @click="copyCode">当无法下载，资源发生跨域限制时，在视频源页面打开控制台，注入代码解决，点击本按钮复制代码</div>
-  <a class="m-p-final" target="_blank" href="https://segmentfault.com/a/1190000025182822">下载的视频看不了？试试这个终结解决方案「无差别视频提取工具」，有配套「油猴」插件啦！！！</a>
 
   <template v-if="finishList.length > 0">
     <div class="m-p-line"></div>
