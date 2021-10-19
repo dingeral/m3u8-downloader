@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="keywords" content="m3u8 downloader for web">
-  <meta name="description" content="m3u8 downloader for web, Momo's Blog, LuckyMomo">
+  <meta name="description" content="m3u8 downloader">
   <title>m3u8 downloader</title>
   <style>
   /*全局设置*/
@@ -22,8 +22,8 @@
     display: none;
   }
   #m-app {
-    height: 100%;
-    width: 100%;
+    height: 900%;
+    width: 80%;
     text-align: center;
     padding: 10px 50px 80px;
     box-sizing: border-box;
@@ -83,12 +83,6 @@
   .m-p-github {
     bottom: 150px;
   }
-  /*广告*/
-  .m-p-refer {
-    position: absolute;
-    left: 50px;
-    bottom: 50px;
-  }
   .m-p-refer .text {
     position: absolute;
     top: -80px;
@@ -99,29 +93,6 @@
     animation-fill-mode: both;
     animation-iteration-count: infinite;
     animation-delay: .5s;
-  }
-  .m-p-refer .close {
-    display: block;
-    position: absolute;
-    top: -110px;
-    right: -50px;
-    padding: 0;
-    margin: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    z-index: 3;
-    transition: 0.3s all;
-    background-size: 30px 30px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-image: url(https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/imgs/close.png);
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  .m-p-refer .close:hover {
-    background-color: rgba(0, 0, 0, 0.8);
   }
   .m-p-refer .link {
     border-radius: 4px;
@@ -399,9 +370,9 @@
 // })();
 // </script>
 <!--vue 前端框架-->
-<script src="https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/vue.js"></script>
-<script src="https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/aes-decryptor.js"></script>
-<script src="https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/mux-mp4.js"></script>
+<script src="https://raw.githubusercontent.com/dingeral/m3u8-downloader/main/vue.js"></script>
+<script src="https://raw.githubusercontent.com/dingeral/m3u8-downloader/main/aes-decryptor.js"></script>
+<script src="https://raw.githubusercontent.com/dingeral/m3u8-downloader/main/mux-mp4.js"></script>
 
 <script>
 // script注入
@@ -834,15 +805,15 @@ new Vue({
 
           // 加载 ASE 解密
           let $ase = document.createElement('script')
-          $ase.src = 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/aes-decryptor.js'
+          $ase.src = 'https://raw.githubusercontent.com/dingeral/m3u8-downloader/main/aes-decryptor.js'
 
           // 加载 mp4 转码
           let $mp4 = document.createElement('script')
-          $mp4.src = 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/mux-mp4.js'
+          $mp4.src = 'https://raw.githubusercontent.com/dingeral/m3u8-downloader/main/mux-mp4.js'
 
           // 加载 vue
           let $vue = document.createElement('script')
-          $vue.src = 'https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/vue.js'
+          $vue.src = 'https://raw.githubusercontent.com/dingeral/m3u8-downloader/main/vue.js'
 
           // 监听 vue 加载完成，执行业务代码
           $vue.addEventListener('load', () => {${script}})
